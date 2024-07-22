@@ -1,0 +1,1 @@
+# ✨ TUUXIC's NEOVIM CONFIG ✨
