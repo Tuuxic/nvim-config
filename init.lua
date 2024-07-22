@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
         end
 
         -- current buffer is a file
-        neotree.execute { reveal = true }
+        neotree.execute { action = 'show' }
     end,
 })
 
