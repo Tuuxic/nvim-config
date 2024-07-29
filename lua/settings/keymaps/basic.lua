@@ -10,10 +10,28 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save the file. [W]rite data
 -- Movement remaps:
 vim.keymap.set('n', 'L', '$', { desc = 'Go to the end of the line' })
 vim.keymap.set('n', 'H', '_', { desc = 'Go to the begining of the line' })
+vim.keymap.set('v', 'L', '$', { desc = 'Go to the end of the line' })
+vim.keymap.set('v', 'H', '_', { desc = 'Go to the begining of the line' })
+vim.keymap.set('o', 'L', '$', { desc = 'Go to the end of the line' })
+vim.keymap.set('o', 'H', '_', { desc = 'Go to the begining of the line' })
+
+vim.keymap.set('n', '<leader>o', 'o<ESC>', { desc = 'Add newline below', silent = true })
+vim.keymap.set('n', '<leader>O', 'O<ESC>', { desc = 'Add newline above', silent = true })
 
 -- Comment remaps:
-vim.keymap.set('n', '<C-/>', 'gcc', { desc = 'Toggle comment of line' })
-vim.keymap.set('v', '<C-/>', 'gc', { desc = 'Toggle comment of selection' })
+-- vim.keymap.set('n', '<C-_>', 'gcc', { desc = 'Toggle comment of line', noremap = true })
+-- vim.keymap.set('v', '<C-_>', 'gc', { desc = 'Toggle comment of selection', noremap = true })
+
+vim.keymap.set('n', '<C-_>', function()
+    require('Comment.api').toggle.linewise.current()
+end, { noremap = true, silent = true, desc = 'Toggle comment of line' })
+
+-- - Toggle selection (linewise)
+vim.keymap.set('x', '<C-_>', function()
+    local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
+    vim.api.nvim_feedkeys(esc, 'nx', false)
+    require('Comment.api').toggle.linewise(vim.fn.visualmode())
+end, { desc = 'Toggle comment of selection', silent = true })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
