@@ -1,0 +1,106 @@
+" Commands: https://jb.gg/h38q75
+" Examples: https://jb.gg/share-ideavimrc
+
+" Source your .vimrc
+" source ~/.vimrc
+
+let mapleader = " "
+
+" Allow navigation of autocomplete in insert mode
+sethandler <C-k> i:ide
+sethandler <C-j> i:ide
+
+set scrolloff=5
+set incsearch
+set showmode
+set ignorecase
+set smartcase
+set nu
+set relativenumber
+set showcmd
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+"IdeaVim Plugins: https://jb.gg/ideavim-plugins
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'kana/vim-textobj-entire'
+Plug 'justinmk/vim-sneak'
+
+set sneak
+set quickscope
+
+" Plugin Settings
+let g:highlightedyank_highlight_duration = '150'
+let g:highlightedyank_highlight_color = 'rgba(255, 255, 255, 255)'
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T', 's', 'S']
+let g:qs_primary_color = '#ada5d9'
+let g:qs_secondary_color = '#6c55ed'
+
+" Plugin Maps
+unmap s
+unmap S
+nmap <leader>f <Plug>(sneak-s)
+nmap <leader>F <Plug>(sneak-S)
+
+"" Map IDE actions to IdeaVim: https://jb.gg/abva4t
+
+" IDE Actions
+map \\r <Action>(ReformatCode)
+map \\b <Action>(ToggleLineBreakpoint)
+map \\d <Action>(Debug)
+map \\g <Action>(ActivateCommitToolWindow)
+map \\e <Action>(ActivateProjectToolWindow)
+
+"" Map <leader>w to save
+map <leader>w <Action>(SaveDocument)
+
+" IntelliJ Menus
+map <C-p> <Action>(GotoFile)
+map <C-.> <Action>(ShowIntentionActions)
+map <leader>e <Action>(ActivateProjectToolWindow)
+
+" Yanking, Pasting and Deleting
+nnoremap Y y$
+vmap <leader>y \"+y
+vmap <leader>d \"+d
+" vnoremap <leader>p \"_dP
+map <leader>p \"+p
+map <leader>P \"+P
+
+" Move Selections
+nmap <C-j> <Action>(MoveLineDown)
+xmap <C-j> <Action>(MoveLineDown)
+nmap <C-k> <Action>(MoveLineUp)
+xmap <C-k> <Action>(MoveLineUp)
+
+" Editor Tab Navigation
+map <C-l> <Action>(NextTab)
+map <C-h> <Action>(PreviousTab)
+
+" Error Navigation
+nmap <leader>; <Action>(GotoNextError)
+nmap <leader>, <Action>(GotoPreviousError)
+
+" Disable unwanted features
+map J j
+map K k
+
+" map <C-[> <Esc>
+
+" Center screen on movement
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Why the fugg is this not the default???
+map L $
+map H ^
+
+" 'Go' Movements
+nmap gh <Action>(ShowHoverInfo)
+
+
