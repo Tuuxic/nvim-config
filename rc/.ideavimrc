@@ -56,6 +56,8 @@ map \\b <Action>(ToggleLineBreakpoint)
 map \\d <Action>(Debug)
 map \\g <Action>(ActivateCommitToolWindow)
 map \\e <Action>(ActivateProjectToolWindow)
+map \\t <Action>(ActivateTerminalToolWindow)
+map \\f <Action>(ReformatCode)
 
 "" Map <leader>w to save
 map <leader>w <Action>(SaveDocument)
