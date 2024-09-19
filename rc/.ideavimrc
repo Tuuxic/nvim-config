@@ -30,6 +30,7 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'kana/vim-textobj-entire'
 Plug 'justinmk/vim-sneak'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 set sneak
 set quickscope
