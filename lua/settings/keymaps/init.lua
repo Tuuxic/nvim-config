@@ -1,0 +1,5 @@
+require 'settings.keymaps.basic'
+require 'settings.keymaps.lsp'
+require 'settings.keymaps.neotree'
+require 'settings.keymaps.barbar'
+-- require 'settings.keymaps.telescope'

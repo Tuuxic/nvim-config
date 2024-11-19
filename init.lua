@@ -40,10 +40,10 @@ require 'settings.globals'
 require 'settings.options'
 
 -- Load basic keymaps
-require 'settings.keymaps.basic'
+require 'settings.keymaps'
 
 -- Load basic autocmds
-require 'settings.autocmds.basic'
+require 'settings.autocmds'
 
 -- Setup the lazy.nvim plugin manager
 require('plugins.lazy').setup()
@@ -68,6 +68,7 @@ require('lazy').setup({
     require 'plugins.conform',
     require 'plugins.cmp',
     require 'plugins.colorscheme',
+    require 'plugins.lualine',
     require 'plugins.todocomments',
     require 'plugins.mini',
     require 'plugins.treesitter',
@@ -76,6 +77,7 @@ require('lazy').setup({
     require 'plugins.lint',
     require 'plugins.autopairs',
     require 'plugins.neotree',
+    require 'plugins.barbar',
     require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
 }, {
     ui = {
